@@ -1,0 +1,154 @@
+{
+  "project_info": {
+    "project_number": "46438059374",
+    "project_id": "cloudfunctiondemo-fd4cc",
+    "storage_bucket": "cloudfunctiondemo-fd4cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46438059374:android:417d4f2cca3a5ee1e1057f",
+        "android_client_info": {
+          "package_name": "com.custompushnotificationdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46438059374-o5a29tpfts3v6td5uc7nb5alqdman242.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuOdLGdGWSdPBoeghVzqxpm0qZ8D30srg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46438059374-g4it6l2sjb5moqb5ne45no7if9u1a7i7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "46438059374-6pfp5k6975ese4dte807gdu8qf69u8l1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rnsocialloginexample"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46438059374:android:2f5a0794b9277d66e1057f",
+        "android_client_info": {
+          "package_name": "com.reactnativesentrydemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46438059374-o5a29tpfts3v6td5uc7nb5alqdman242.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuOdLGdGWSdPBoeghVzqxpm0qZ8D30srg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46438059374-g4it6l2sjb5moqb5ne45no7if9u1a7i7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "46438059374-6pfp5k6975ese4dte807gdu8qf69u8l1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rnsocialloginexample"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46438059374:android:c64bbd8f6f30a266e1057f",
+        "android_client_info": {
+          "package_name": "com.rnsocialloginexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46438059374-o5a29tpfts3v6td5uc7nb5alqdman242.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuOdLGdGWSdPBoeghVzqxpm0qZ8D30srg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46438059374-g4it6l2sjb5moqb5ne45no7if9u1a7i7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "46438059374-6pfp5k6975ese4dte807gdu8qf69u8l1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rnsocialloginexample"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46438059374:android:7bf1ea9a0d1339d8e1057f",
+        "android_client_info": {
+          "package_name": "com.scrollviewdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46438059374-o5a29tpfts3v6td5uc7nb5alqdman242.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuOdLGdGWSdPBoeghVzqxpm0qZ8D30srg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46438059374-g4it6l2sjb5moqb5ne45no7if9u1a7i7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "46438059374-6pfp5k6975ese4dte807gdu8qf69u8l1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rnsocialloginexample"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RnSocialLoginExample</string>
+    <string name="facebook_app_id">346970436673979</string>
+    <string name="facebook_client_token">1dee366d48f9cd4514c07412424d1e3f</string>
 </resources>

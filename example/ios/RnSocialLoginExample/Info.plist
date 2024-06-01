@@ -20,13 +20,40 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.46438059374-6pfp5k6975ese4dte807gdu8qf69u8l1</string>
+			</array>
+		</dict>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb346970436673979</string>
+      </array>
+      </dict>
+	</array>
+  <key>FacebookAppID</key>
+  <string>346970436673979</string>
+  <key>FacebookClientToken</key>
+  <string>1dee366d48f9cd4514c07412424d1e3f</string>
+  <key>FacebookDisplayName</key>
+  <string>Social Login Demo</string>
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>fbapi</string>
+    <string>fb-messenger-share-api</string>
+  </array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
