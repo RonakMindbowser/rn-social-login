@@ -1,6 +1,7 @@
 import React, { forwardRef, useImperativeHandle } from 'react';
 import {
   Image,
+  Platform,
   StyleSheet,
   TouchableOpacity,
   View,
@@ -18,6 +19,10 @@ import {
   Profile,
   Settings,
 } from 'react-native-fbsdk-next';
+import appleAuth, {
+  AppleCredentialState,
+  type AppleRequestResponse,
+} from '@invertase/react-native-apple-authentication';
 
 export interface SocialLoginProps {
   /** Web client ID for Google Sign-In configuration */
@@ -36,12 +41,24 @@ export interface SocialLoginProps {
   signOutGoogleSignBeforeLogin?: boolean;
   /** Custom React node to render for Google Sign-In button */
   renderCustomGoogleSignIn?: () => JSX.Element | React.ReactNode;
-
+  /** Callback function called on initialization error */
   onInititalizationError?: (error: any) => void;
+  /** Custom React node to render for Facebook Sign-In button */
   renderCustomFacebookSignIn?: () => JSX.Element | React.ReactNode;
+  /** Callback function called on Facebook Sign-In error */
   onFacebookSignInError?: (error: any) => void;
+  /** Callback function called on successful Facebook Sign-In */
   onFacebookSignInSuccess?: (info: FacebookSignInProps) => void;
+  /** Custom styles for the Facebook icon wrapper */
   facebookIconWrapperStyle?: StyleProp<ViewStyle>;
+  /** Custom styles for the Apple icon wrapper */
+  appleIconWrapperStyle?: StyleProp<ViewStyle>;
+  /** Custom React node to render for Apple Sign-In button */
+  renderCustomAppleSignIn?: () => JSX.Element | React.ReactNode;
+  /** Callback function called on Apple Sign-In error */
+  onAppleSignInError?: (error: any) => void;
+  /** Callback function called on successful Apple Sign-In */
+  onAppleSignInSuccess?: (info: AppleSignInProps) => void;
 }
 
 export interface FacebookSignInProps {
@@ -49,14 +66,20 @@ export interface FacebookSignInProps {
   currentProfile?: Profile | null;
 }
 
+export interface AppleSignInProps {
+  appleAuthRequestResponse?: AppleRequestResponse | null;
+  credentialState?: AppleCredentialState | null;
+}
+
 export interface SocialLoginHandle {
   /** Initializes Google Sign-In configuration */
-  initGoogleSignIn: (config: {
+  initSocialLogins: (config: {
     webClientId?: string;
     iosClientId?: string;
   }) => void;
 }
 
+/**Social Login Component */
 const SocialLogin = forwardRef<SocialLoginHandle, SocialLoginProps>(
   (
     {
@@ -71,14 +94,23 @@ const SocialLogin = forwardRef<SocialLoginHandle, SocialLoginProps>(
       onFacebookSignInError,
       onFacebookSignInSuccess,
       facebookIconWrapperStyle,
+      appleIconWrapperStyle,
+      renderCustomAppleSignIn,
+      onAppleSignInError,
+      onAppleSignInSuccess,
     },
     ref
   ) => {
+    // Expose functions to the parent component via ref
     useImperativeHandle(ref, () => ({
-      initGoogleSignIn,
+      initSocialLogins,
     }));
 
-    const initGoogleSignIn = ({
+    /**
+     * Initializes Google Sign-In configuration and Facebook SDK.
+     * @param config - Configuration object containing webClientId and iosClientId.
+     */
+    const initSocialLogins = ({
       webClientId,
       iosClientId,
     }: {
@@ -115,6 +147,10 @@ const SocialLogin = forwardRef<SocialLoginHandle, SocialLoginProps>(
       }
     };
 
+    /**
+     * Handles Facebook Sign-In process, including sign-out before login,
+     * and calls the appropriate success or error callback.
+     */
     const handleFacebookSignIn = async () => {
       LoginManager.logOut();
 
@@ -141,8 +177,35 @@ const SocialLogin = forwardRef<SocialLoginHandle, SocialLoginProps>(
       }
     };
 
+    /**
+     * Handles Apple Sign-In process and calls the appropriate success or error callback.
+     */
+    const handleAppleSignIn = async () => {
+      try {
+        // Performs login request
+        const appleAuthRequestResponse: AppleRequestResponse =
+          await appleAuth.performRequest({
+            requestedOperation: appleAuth.Operation.LOGIN,
+            // Note: it appears putting FULL_NAME first is important, see issue #293
+            requestedScopes: [appleAuth.Scope.FULL_NAME, appleAuth.Scope.EMAIL],
+          });
+
+        const credentialState: AppleCredentialState =
+          await appleAuth.getCredentialStateForUser(
+            appleAuthRequestResponse.user
+          );
+        onAppleSignInSuccess?.({
+          appleAuthRequestResponse,
+          credentialState,
+        });
+      } catch (error) {
+        onAppleSignInError?.(error);
+      }
+    };
+
     return (
       <View style={[styles.container, mainContainerStyle]}>
+        {/* Google Sign-In Button */}
         <TouchableOpacity
           style={googleIconWrapperStyle}
           onPress={handleGoogleSignIn}
@@ -157,6 +220,7 @@ const SocialLogin = forwardRef<SocialLoginHandle, SocialLoginProps>(
           )}
         </TouchableOpacity>
 
+        {/* Facebook Sign-In Button */}
         <TouchableOpacity
           style={facebookIconWrapperStyle}
           onPress={handleFacebookSignIn}
@@ -170,6 +234,23 @@ const SocialLogin = forwardRef<SocialLoginHandle, SocialLoginProps>(
             />
           )}
         </TouchableOpacity>
+
+        {/* Apple Sign-In Button (only for iOS) */}
+        {Platform.OS === 'ios' ? (
+          <TouchableOpacity
+            style={appleIconWrapperStyle}
+            onPress={handleAppleSignIn}
+          >
+            {renderCustomAppleSignIn ? (
+              renderCustomAppleSignIn()
+            ) : (
+              <Image
+                source={imageConstants.appleIcon}
+                style={styles.iconStyle}
+              />
+            )}
+          </TouchableOpacity>
+        ) : null}
       </View>
     );
   }
