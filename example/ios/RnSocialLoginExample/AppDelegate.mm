@@ -37,7 +37,7 @@
     return YES;
   }
 
-  // Optionally handle Facebook login if needed in the future
+  //  Handle URL for Facebook Sign-In
   if ([[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options]) {
     return YES;
   }
