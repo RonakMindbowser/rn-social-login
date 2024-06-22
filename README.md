@@ -1,4 +1,4 @@
-# rn-social-login
+# rn-social-signin
 
 Apple, Google, Facebook Login in One SDK
 

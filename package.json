@@ -1,6 +1,6 @@
 {
-  "name": "rn-social-login",
-  "version": "0.1.0",
+  "name": "rn-social-signin",
+  "version": "0.0.1",
   "description": "Apple, Google, Facebook Login in One SDK",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -26,7 +26,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace rn-social-login-example",
+    "example": "yarn workspace rn-social-signin-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
@@ -41,14 +41,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RonakMindbowser/rn-social-login.git"
+    "url": "git+https://github.com/RonakMindbowser/rn-social-signin.git"
   },
   "author": "Ronak Kotak <ronak.kotak@mindbowser.com> (https://github.com/RonakMindbowser)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RonakMindbowser/rn-social-login/issues"
+    "url": "https://github.com/RonakMindbowser/rn-social-signin/issues"
   },
-  "homepage": "https://github.com/RonakMindbowser/rn-social-login#readme",
+  "homepage": "https://github.com/RonakMindbowser/rn-social-signin#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
